@@ -7,8 +7,8 @@
 
 using namespace std;
 
-void PrintVectorElements(vector<int>& arr);
-void PrintVectorElements(vector<string>& arr);
+template <class T>
+void PrintVectorElements(vector<T>& arr);
 
 void TryVectorConstructor();
 void TryVector();
@@ -17,22 +17,15 @@ void RotateVectorLeft();
 
 void TryMap();
 
-int main() {
+int Learnmain() {
 
-	RotateVectorRight();
-
-	RotateVectorLeft();
+	TryVector();
 
 	return 0;
 }
 
-void PrintVectorElements(vector<int>& arr) {
-	for (int i = 0; i < (signed)arr.size(); i++)
-		cout << arr.at(i) << ", ";
-	cout << endl;
-}
-
-void PrintVectorElements(vector<string>& arr) {
+template <class T>
+void PrintVectorElements(vector<T>& arr) {
 	for (int i = 0; i < (signed)arr.size(); i++)
 		cout << arr.at(i) << ", ";
 	cout << endl;
@@ -41,7 +34,7 @@ void PrintVectorElements(vector<string>& arr) {
 void TryVectorConstructor() {
 	// create vector with 4 elements, set element initial value to -25
 	vector<int> arr(4, -25);
-
+	cout << "Inialize vector using constructor." << endl;
 	PrintVectorElements(arr);
 }
 

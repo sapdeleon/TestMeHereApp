@@ -6,19 +6,22 @@
 
 using namespace std;
 
-string findDuplicate(vector<string>& arr);
+template <class T>
+T findDuplicate(vector<T>& arr);
+
 void ShowMeTheDuplicate();
 void SayWhat();
 
-int Gm_main() {
+int main() {
 
-    SayWhat();
+    ShowMeTheDuplicate();
 
     return 0;
 }
 
-string findDuplicate(vector<string>& arr) {
-    string result = "";
+template <class T>
+T findDuplicate(vector<T>& arr) {
+    T result = "";
 
     if (arr.size() == 0) return result;
     for (int x = 0; x < (signed)arr.size(); x++) {
