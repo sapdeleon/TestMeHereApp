@@ -10,7 +10,7 @@ string findDuplicate(vector<string>& arr);
 void ShowMeTheDuplicate();
 void SayWhat();
 
-int main() {
+int Gm_main() {
 
     SayWhat();
 

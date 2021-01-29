@@ -7,37 +7,42 @@
 
 using namespace std;
 
-void TryMap();
+void PrintVectorElements(vector<int>& arr);
+void PrintVectorElements(vector<string>& arr);
+
+void TryVectorConstructor();
 void TryVector();
-void TestRotateVector();
+void RotateVectorRight();
+void RotateVectorLeft();
 
-int LearnMain() {
+void TryMap();
 
-	TestRotateVector();
+int main() {
+
+	RotateVectorRight();
+
+	RotateVectorLeft();
 
 	return 0;
 }
 
-void TryMap() {
-	map<int, string> Employees;
+void PrintVectorElements(vector<int>& arr) {
+	for (int i = 0; i < (signed)arr.size(); i++)
+		cout << arr.at(i) << ", ";
+	cout << endl;
+}
 
-	Employees[101] = "John Thomas";
-	Employees[103] = "Jack Jones";
-	Employees[105] = "Jane Doe";
+void PrintVectorElements(vector<string>& arr) {
+	for (int i = 0; i < (signed)arr.size(); i++)
+		cout << arr.at(i) << ", ";
+	cout << endl;
+}
 
-	cout << "Maximum size: " << Employees.max_size() << endl << endl;
+void TryVectorConstructor() {
+	// create vector with 4 elements, set element initial value to -25
+	vector<int> arr(4, -25);
 
-	cout << Employees[101] << " " << Employees[103] << endl;
-	cout << "Size: " << Employees.size() << endl;
-
-	cout << endl << "Natural Order:" << endl;
-	for (map<int, string>::iterator x = Employees.begin(); x != Employees.end(); x++) {
-		cout << (*x).first << " | " << (*x).second << endl;
-	}
-	cout << endl << "Reverse Order:" << endl;
-	for (map<int, string>::reverse_iterator x = Employees.rbegin(); x != Employees.rend(); x++) {
-		cout << (*x).first << " | " << (*x).second << endl;
-	}
+	PrintVectorElements(arr);
 }
 
 void TryVector() {
@@ -72,8 +77,8 @@ void TryVector() {
 	skills.insert(skills.begin() + 1, "AutoCAD");
 	skills.push_back("Node.js");
 
-	for (int i = 0; i < (signed)skills.size(); i++)
-		cout << skills.at(i) << ", ";
+	PrintVectorElements(skills);
+
 	cout << endl << "New skill added: " << skills.back() << endl;
 	cout << endl << "First skill added: " << skills.front() << endl;
 
@@ -85,31 +90,50 @@ void TryVector() {
 	skills.resize(5);
 	skills.clear();
 
-	for (int i = 0; i < (signed)skills.size(); i++)
-		cout << skills.at(i) << ", ";
-	cout << endl;
+	PrintVectorElements(skills);
+
 	cout << "Size: " << skills.size() << endl;
 }
 
-void TestRotateVector() {
-	vector<int> arrLeft = { 1,2,3,4,5,6,7 };
+void RotateVectorRight() {
 	vector<int> arrRight = { 1,2,3,4,5,6,7 };
-
-	// this one is rotate left
-	int rotLeft = 3;
-	rotate(arrLeft.begin(), arrLeft.begin() + rotLeft, arrLeft.end());
-
-	cout << "Rotate Left " << rotLeft << " times." << endl;
-	for (int i = 0; i < (signed)arrLeft.size(); i++)
-		cout << arrLeft.at(i) << ", ";
-	cout << endl;
 
 	// this one is rotate right using rbegin() and rend()
 	int rotRight = 3;
-	cout << "Rotate Right " << rotRight << " times." << endl;
+	cout << "Rotate Right (-->) " << rotRight << " times." << endl;
 	rotate(arrRight.rbegin(), arrRight.rbegin() + rotRight, arrRight.rend());
 
-	for (int i = 0; i < (signed)arrRight.size(); i++)
-		cout << arrRight.at(i) << ", ";
-	cout << endl;
+	PrintVectorElements(arrRight);
+}
+
+void RotateVectorLeft() {
+	int rotLeft = 3;
+	vector<int> arrLeft = { 1,2,3,4,5,6,7,8 };
+
+	rotate(arrLeft.begin(), arrLeft.begin() + rotLeft, arrLeft.end());
+
+	cout << "Rotate Left (<--) " << rotLeft << " times." << endl;
+	PrintVectorElements(arrLeft);
+}
+
+void TryMap() {
+	map<int, string> Employees;
+
+	Employees[101] = "John Thomas";
+	Employees[103] = "Jack Jones";
+	Employees[105] = "Jane Doe";
+
+	cout << "Maximum size: " << Employees.max_size() << endl << endl;
+
+	cout << Employees[101] << " " << Employees[103] << endl;
+	cout << "Size: " << Employees.size() << endl;
+
+	cout << endl << "Natural Order:" << endl;
+	for (map<int, string>::iterator x = Employees.begin(); x != Employees.end(); x++) {
+		cout << (*x).first << " | " << (*x).second << endl;
+	}
+	cout << endl << "Reverse Order:" << endl;
+	for (map<int, string>::reverse_iterator x = Employees.rbegin(); x != Employees.rend(); x++) {
+		cout << (*x).first << " | " << (*x).second << endl;
+	}
 }
