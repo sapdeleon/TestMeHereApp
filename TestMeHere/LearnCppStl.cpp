@@ -4,10 +4,19 @@
 #include <vector>
 #include <string>
 #include <algorithm> // need this to use rotate()
-#include <sstream>
-
 
 using namespace std;
+
+void TryMap();
+void TryVector();
+void TestRotateVector();
+
+int LearnMain() {
+
+	TestRotateVector();
+
+	return 0;
+}
 
 void TryMap() {
 	map<int, string> Employees;
@@ -33,7 +42,7 @@ void TryMap() {
 
 void TryVector() {
 	vector<string> skills;
-	vector<string> old_skills = {"C", "Delphi", "Unix", "Windows", "VB", "SQL", "MySQL", "MongoDB"};
+	vector<string> old_skills = { "C", "Delphi", "Unix", "Windows", "VB", "SQL", "MySQL", "MongoDB" };
 
 	// skills.push_back("Test"); // test to see if the vector skills is empty.
 
@@ -46,7 +55,7 @@ void TryVector() {
 	for (vector<string>::iterator x = skills.begin(); x != skills.end(); x++)
 		cout << *x << ", ";
 	cout << endl;
-	
+
 	// add new element to skills
 	skills.push_back("Node.js");
 
@@ -57,10 +66,10 @@ void TryVector() {
 	skills.swap(old_skills);
 	skills.insert(skills.end(), old_skills.begin(), old_skills.end());
 
-	skills.erase(skills.begin()+2); // will take out "Unix"
+	skills.erase(skills.begin() + 2); // will take out "Unix"
 
 	// using insert function
-	skills.insert(skills.begin()+1, "AutoCAD");
+	skills.insert(skills.begin() + 1, "AutoCAD");
 	skills.push_back("Node.js");
 
 	for (int i = 0; i < (signed)skills.size(); i++)
@@ -68,7 +77,7 @@ void TryVector() {
 	cout << endl << "New skill added: " << skills.back() << endl;
 	cout << endl << "First skill added: " << skills.front() << endl;
 
-	cout << "Size: " << skills.size() << " Capacity: " << skills.capacity() << 
+	cout << "Size: " << skills.size() << " Capacity: " << skills.capacity() <<
 		" Maximum Capacity: " << skills.max_size() << endl;
 
 	// using resize function
@@ -103,12 +112,4 @@ void TestRotateVector() {
 	for (int i = 0; i < (signed)arrRight.size(); i++)
 		cout << arrRight.at(i) << ", ";
 	cout << endl;
-}
-
-int main() {
-
-
-
-
-	return 0;
 }

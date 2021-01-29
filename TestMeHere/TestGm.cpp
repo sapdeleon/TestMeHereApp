@@ -1,10 +1,21 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <sstream>
+#include <sstream> // for stringstream
 #include <map>
 
 using namespace std;
+
+string findDuplicate(vector<string>& arr);
+void ShowMeTheDuplicate();
+void SayWhat();
+
+int main() {
+
+    SayWhat();
+
+    return 0;
+}
 
 string findDuplicate(vector<string>& arr) {
     string result = "";
@@ -20,8 +31,7 @@ string findDuplicate(vector<string>& arr) {
     return result;
 }
 
-int GM_main() {
-
+void ShowMeTheDuplicate() {
     // test vector<string> array
     // vector<string> arr = {"1","2","3","4","5","3","6","7"};
     string line;
@@ -45,6 +55,20 @@ int GM_main() {
 
         cout << line << endl;
     }
+}
+
+void SayWhat() {
+    //reverse the string input - Hello World --> World Hello
+    string line;
+    string delimeter = " ";
+
+    while (getline(cin, line) && line != "") {
+        string first = line.substr(0, line.find(delimeter));
+        string last = line.substr(line.find(delimeter) + 1);
+        line = last + delimeter + first;
+        cout << line << endl;
+    }
+}
 
     // one other way to find duplicate using map
     //while (getline(cin, line)) {
@@ -74,15 +98,6 @@ int GM_main() {
     //    cout << line << endl;
     //}
 
-    // reverse the string input - Hello World --> World Hello
-    // string delimeter = " ";
-    //while (getline(cin, line)) {
-    //    string first = line.substr(0, line.find(delimeter));
-    //    string last = line.substr(line.find(delimeter) + 1);
-    //    line = last + delimeter + first;
-    //    cout << line << endl;
-    //}
-
     // Still undergoing development
     // Give me back my change...
     //string test;
@@ -107,6 +122,3 @@ int GM_main() {
 
     //    cout << test << endl;
     //}
-
-    return 0;
-}
