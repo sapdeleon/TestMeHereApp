@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include <algorithm> // need this to use rotate()
+#include <sstream>
 
 
 using namespace std;
@@ -106,7 +107,8 @@ void TestRotateVector() {
 
 int main() {
 
-	TestRotateVector();
+
+
 
 	return 0;
 }

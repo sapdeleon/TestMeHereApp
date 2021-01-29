@@ -6,39 +6,73 @@
 
 using namespace std;
 
+string findDuplicate(vector<string>& arr) {
+    string result = "";
+
+    if (arr.size() == 0) return result;
+    for (int x = 0; x < (signed)arr.size(); x++) {
+        for (int y = x + 1; y < (signed)arr.size(); y++) {
+            if (arr[x] == arr[y])
+                return arr[x];
+        }
+    }
+
+    return result;
+}
+
 int GM_main() {
 
-    string line; // int x = 0;
-    string delimeter = ";";
-    vector<string> result;
+    // test vector<string> array
+    // vector<string> arr = {"1","2","3","4","5","3","6","7"};
+    string line;
 
-    while (getline(cin, line)) {
+    // this one works...
+    // check as well if user does not enter anything - save from crashing...
+    while (getline(cin, line) && line != "")
+    {
         string first = line.substr(0, line.find(";"));
         string last = line.substr(line.find(";") + 1);
 
+        vector<string> arr;
         stringstream ss(last);
         string substr;
 
+        // gather all the elements here...
         while (getline(ss, substr, ',')) {
-            result.push_back(substr);
+            arr.push_back(substr);
         }
-        // use map to iterate through the vector result.
-        map<string, int> countMap;
-        for (auto& elem : result) {
-            auto test = countMap.insert(pair<string, int>(elem, 1));
-            if (test.second == false)
-                test.first->second++;
-        }
-        // find the duplicate from the map
-        string sline;
-        for (auto& elem : countMap) {
-            if (elem.second > 1) {
-                cout << elem.first << ", " << elem.second << endl;
-                sline = elem.first;
-            }
-        }
-        cout << sline << endl;
+        line = findDuplicate(arr);
+
+        cout << line << endl;
     }
+
+    // one other way to find duplicate using map
+    //while (getline(cin, line)) {
+    //    string first = line.substr(0, line.find(";"));
+    //    string last = line.substr(line.find(";") + 1);
+
+    //    stringstream ss(last);
+    //    string substr;
+
+    //    while (getline(ss, substr, ',')) {
+    //        result.push_back(substr);
+    //    }
+    //    // use map to iterate through the vector result.
+    //    map<string, int> countMap;
+    //    for (auto& elem : result) {
+    //        auto test = countMap.insert(pair<string, int>(elem, 1));
+    //        if (test.second == false)
+    //            test.first->second++;
+    //    }
+    //    // find the duplicate from the map
+    //    for (auto& elem : countMap) {
+    //        if (elem.second > 1) {
+    //            cout << elem.first << ", " << elem.second << endl;
+    //            line = elem.first;
+    //        }
+    //    }
+    //    cout << line << endl;
+    //}
 
     // reverse the string input - Hello World --> World Hello
     // string delimeter = " ";
