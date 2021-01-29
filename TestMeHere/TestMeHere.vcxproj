@@ -139,8 +139,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="GMTest.cpp" />
-    <ClCompile Include="TestMap.cpp" />
+    <ClCompile Include="TestGm.cpp" />
+    <ClCompile Include="LearnCppStl.cpp" />
     <ClCompile Include="TestMeHere.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

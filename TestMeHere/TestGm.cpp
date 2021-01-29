@@ -6,7 +6,7 @@
 
 using namespace std;
 
-int GMmain() {
+int GM_main() {
 
     string line; // int x = 0;
     string delimeter = ";";
@@ -49,6 +49,7 @@ int GMmain() {
     //    cout << line << endl;
     //}
 
+    // Still undergoing development
     // Give me back my change...
     //string test;
     //double Penny = 0.01, Nickel = 0.05, Dime = 0.10, Quarter = 0.25,

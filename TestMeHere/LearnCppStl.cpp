@@ -81,8 +81,7 @@ void TryVector() {
 	cout << "Size: " << skills.size() << endl;
 }
 
-int main() {
-
+void TestRotateVector() {
 	vector<int> arrLeft = { 1,2,3,4,5,6,7 };
 	vector<int> arrRight = { 1,2,3,4,5,6,7 };
 
@@ -95,7 +94,7 @@ int main() {
 		cout << arrLeft.at(i) << ", ";
 	cout << endl;
 
-	// this one is rotate right
+	// this one is rotate right using rbegin() and rend()
 	int rotRight = 3;
 	cout << "Rotate Right " << rotRight << " times." << endl;
 	rotate(arrRight.rbegin(), arrRight.rbegin() + rotRight, arrRight.rend());
@@ -103,6 +102,11 @@ int main() {
 	for (int i = 0; i < (signed)arrRight.size(); i++)
 		cout << arrRight.at(i) << ", ";
 	cout << endl;
+}
+
+int main() {
+
+	TestRotateVector();
 
 	return 0;
 }
