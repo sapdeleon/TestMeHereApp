@@ -69,7 +69,7 @@ vector<int> rotateRight(vector<int>& nums, int k) {
 }
 
 vector<char> rotateStringRight(vector<char>& nums) {
-    int left = 0, right = nums.size() - 1;
+    int left = 0, right = (signed)nums.size() - 1;
     while (left < right) {
         char tmp = nums[left];
         nums[left++] = nums[right];
@@ -196,7 +196,7 @@ int OldMain()
     string s = "Hello, World!";
 
     string p = "";
-    int count = s.length();
+    int count = (signed)s.length();
 
     p += to_string(count) + s;
 
